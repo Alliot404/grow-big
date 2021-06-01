@@ -1,0 +1,63 @@
+body{
+  margin:5px;
+  font-family: sans-serif;
+}
+
+/* stying logo */
+.grow-big{
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+.tg-btn{
+  width:35px;
+  padding-left: 6px;
+
+}
+
+.items{
+margin-left: 30px;
+}
+
+.profile{
+text-decoration: none;
+border-style: none;
+
+}
+
+.search-input{
+  width:140px;
+
+}
+.login-button{
+margin-left: 15px;
+  
+}
+  .icon{
+    margin-top: 10px;
+  }
+
+  .bottom-container{
+    margin-top: -16px;
+    padding: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.footer-link1, .footer-link2, .footer-link3{
+  padding-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.copywrite{
+  font-size: 0.85rem;
+}
+
+
+
+
+
+
+

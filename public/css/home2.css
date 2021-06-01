@@ -1,0 +1,120 @@
+body{
+    margin:5px;
+    font-family: sans-serif;
+  }
+  
+  /* stying logo */
+  .grow-big{
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 23px;
+  }
+  .tg-btn{
+    width:35px;
+    padding-left: 6px;
+  
+  }
+  
+  .items{
+  margin-left: 30px;
+  }
+  
+  .profile{
+  text-decoration: none;
+  border-style: none;
+  
+  }
+  
+  .search-input{
+    width:140px;
+  
+  }
+  .login-button{
+  margin-left: 15px;
+    
+  }
+    .icon{
+      margin-top: 10px;
+    }
+  
+    .bottom-container{
+      margin-top: -16px;
+      padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .footer-link1, .footer-link2, .footer-link3{
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  
+  .copywrite{
+    font-size: 0.85rem;
+  }
+  
+
+  /* adding items styles */
+  .item {
+    min-height: 25px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+    margin-left: 20px;
+  }
+
+  .item:last-child {
+    border-bottom: 0;
+  }
+  
+
+  .box {
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 5px;
+   
+  }
+  
+  input:checked+p {
+    text-decoration: line-through;
+    text-decoration-color: #A683E3;
+  }
+
+  label{
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 200;
+    color: #00204a;
+  }
+
+  input[type="text"] {
+    text-align: center;
+    height: 40px;
+    top: 10px;
+    border: none;
+    background-color:antiquewhite;
+    font-size: 20px;
+    font-weight: 200;
+    width: 330px;
+    margin-left: 0px;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #A683E3;
+  }
+
+  ::placeholder {
+    color: grey;
+    opacity: 1;
+  }
+  
+  
+  
+  
+  
+  
