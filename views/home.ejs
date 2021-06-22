@@ -1,20 +1,24 @@
 <%- include("partials/header") -%>
 
-<div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 g-4" style="margin: 0 10px 0 20px;">
-  <h5><%    stores.forEach(function(storeDetails){ %> </h5>
-    <div class="col">
+<h4 style="text-align: center;"><%=customer.username%></h4>
+
+<div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 g-4" id="searchId" style="margin: 0 10px 0 20px;">
+
+  <%    user.forEach(function(users){ %> 
+    <div class="col searchitems">
       <div class="card card shadow">
         <div class="card-body">
-          <h5 class="card-title"><%= storeDetails.nameOfstore %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= storeDetails.typeOfstore %></h6>
-          <p class="card-text"><%= storeDetails.description %></p>
-          <a href="/stores/<%=storeDetails.nameOfstore%>" class="btn btn-primary" style="float: right;">Visit</a>
+          <h5 class="card-title"><%= users.storename %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= users.storelocation %></h6>
+          <p class="card-text"><%= users.storedescription %></p>
+          <a href="/stores/<%=users.storename%>" class="btn btn-primary" style="float: right;">Visit</a>
           
         </div>
       </div>
     </div>
     <%    }); %>
   </div>
+
 
  
 

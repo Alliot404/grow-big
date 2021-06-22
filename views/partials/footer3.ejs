@@ -6,7 +6,7 @@
     <a class="footer-link1" href="#">Instagram</a>
     <a class="footer-link2" href="#">Twitter</a>
     <a class="footer-link3" href="#">Terms&Conditions</a>
-    <p class="copywrite">© 2021 <%= nameOfstore %></p>
+    <p class="copywrite">© 2021 <%= users.storename %></p>
   </div>
 </footer>
 
@@ -21,11 +21,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
    
     <script>
-      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 });
     </script>
+
+<script>
+  function myFunction() {
+    alert("Items details will be saved");
+  }
+  </script>
+
+<script>
+  function myFunction() {
+  let input = document.getElementById('myInput').value
+  input=input.toLowerCase();
+
+  let x = document.getElementsByClassName('searchitems');
+    
+  for (i = 0; i < x.length; i++) { 
+      if (!x[i].innerHTML.toLowerCase().includes(input)) {
+          x[i].style.display="none";
+      }
+      else {
+          x[i].style.display="";                 
+      }
+  }
+}
+</script>
     
   </body>
 </html>

@@ -27,12 +27,16 @@
       <div class="row">
         <div class="col">
           <div class="form-floating mb-3 usename">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Store name" name="storename" value="Store name">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Store name" name="storename" value="<%=user.storename%>">
             <label for="floatingInput">Store name</label>
           </div>
           <div class="form-floating mb-3 usename">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Store type" name="type" value="Type">
-            <label for="floatingInput">Store type</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Location" name="location" value="<%=user.storelocation%>">
+            <label for="floatingInput">City</label>
+          </div>
+          <div class="form-floating mb-3 usename">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" value="<%=user.storeaddress%>">
+            <label for="floatingInput">Full address</label>
           </div>
           <div class="form-floating mb-3 usename">
           <input  type="text" class="form-control" id="floatingInput" placeholder="Store description"  name="description" value="Description" >
@@ -40,18 +44,26 @@
           </div>
         </div>
         <div class="col">
+          
           <div class="form-floating mb-3 usename">
-            <input type="text" class="form-control" id="floatingInput" placeholder="fullname" name="fullname" value="<%=fullname%> ">
+            <input type="text" class="form-control" id="floatingInput" placeholder="fullname" name="fullname" value="<%=user.name%>">
             <label for="floatingInput">Full name</label>
           </div>
+          
           <div class="form-floating mb-3 usename">
-          <input  type="text" class="form-control" id="floatingInput" placeholder="Phone number"  name="phone" value="<%=phone%> " >
+          <input  type="text" class="form-control" id="floatingInput" placeholder="Phone number"  name="phone" value="<%=user.phone%> " >
           <label for="floatingInput">Phone number</label>
           </div>
           <div class="form-floating mb-3 usename">
-            <input  type="text" class="form-control" id="floatingInput" placeholder="Email"  name="email" value="<%=email%>" >
+            <input  type="text" class="form-control" id="floatingInput" placeholder="Email"  name="email" value="<%=user.username%>" >
             <label for="floatingInput">Email</label>
             </div>
+            <div class="form-floating mb-3 usename">
+              <input  type="text" class="form-control" id="floatingInput" placeholder="Password"  name="password" value="<%=user.password%>" >
+              <label for="floatingInput">Password</label>
+              </div>
+              
+                
         </div>
       </div>
       <div class="signin">

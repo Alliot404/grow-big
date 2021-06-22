@@ -21,19 +21,21 @@
 
     <div class="main card shadow">
       <h3>Grow Big</h3>
-       <p>Create your account</p>
+       <p>Create your Business account</p>
 <form class="" action="/signup" method="post">
 
           <div class="form-floating mb-3 usename">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Full name" name="fullname" required>
+            <input type="hidden" name="usertype" value="user">
+            
+      <input type="text" class="form-control" id="floatingInput" placeholder="Full name" name="fullname">
       <label for="floatingInput"><i class="fa fa-user"></i>Full name</label>
     </div>
     <div class="form-floating mb-3 usename">
-    <input type="text" class="form-control" id="floatingInput" placeholder="Phone number" name="phone" required>
+    <input type="text" class="form-control" id="floatingInput" placeholder="Phone number" name="phone">
     <label for="floatingInput"><i class="fa fa-phone"></i>Phone number</label>
     </div>
     <div class="form-floating mb-3 usename">
-    <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required>
+    <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="username" required>
     <label for="floatingInput" style="margin-bottom: 5px; "><i class="fa fa-envelope-o"></i>Email</label>
     </div>
     <div class="form-floating password">
@@ -42,7 +44,7 @@
     </div>
 
     <div class="signin">
-    <input class="btn btn-primary" type="submit" value="Create">
+   <input class="btn btn-primary" type="submit" value="Create"> 
     </div>
 
       <div class="signup">

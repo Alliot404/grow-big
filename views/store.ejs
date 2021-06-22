@@ -1,37 +1,25 @@
 <%- include("partials/header3") -%>
 
-<h3 style="text-align: center;">Wellcome to our <%= nameOfstore %> store </h3>
-
-<!-- <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 g-4" style="margin: 0 10px 0 20px;">
-    <div class="col">
-      <div class="card card shadow">
-        <div class="card-body">
-          <h5 class="card-title"><%= nameOfstore %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= typeOfstore %></h6>
-          <p class="card-text"><%= description %></p>
-          
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
+<h3 style="text-align: center;">Wellcome to our <%= users.storename %> store </h3>
+<h4 style="text-align: center;"><%=customer.username%></h4>
+ 
   
   <div class="container-sm card shadow" >
     <div class="row" style="background-color: deepskyblue;">
       <div class="col mb-10">
         
-        <p><%=name %></p>
+        <p><%=users.name %></p>
       </div>
       <div class="col" style="text-align: right;">
-        <%= phone %>
-        <p><%= email %></p>
+        <%= users.phone %>
+        <p><%= users.username %></p>
       </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-sm-2 g-4 mt-2 mb-4" >
 
       <div class="col">
-       
+        
+        <form action="/stores/<%=users.storename%>" method="post">
         <div class="accordion accordion-flush card shadow" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
@@ -40,113 +28,75 @@
               </button>
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">
+              <div class="accordion-body ">
                 
-                <ol class="list-group list-group-numbered">
-                  
-                  <% for(var i=0;i<newListItems.length;i++){ %>
-                <li class="list-group-item"> 
-                   <%= newListItems[i] %>
-                  <input type="number" value="0" min="0" max="5" style="font-size: 15px; float: right; width: 40px;"> 
-                  <input class="form-check-input me-1" type="checkbox" value="" style="float:right;">
+                <ol class="list-group list-group-numbered ">
+                  <%      newListItems.forEach(function(item){  %>
+                    
+                <li class="list-group-item searchitems">  
+                   <%= item.name %>
+                  <button  class="btn btn-outline-secondary btn-sm"  disabled>Rs: <%= item.price %></button>
+                  <button type="submit" class="btn btn-outline-success btn-sm" value=" <%= item.name%>" name="itemname" style="float:right;">Add</button>
+                  <input class="form-check-input me-1" type="checkbox"  value="<%= item.price%>" style="float:right;" name="price">
                 </li>
-                <% } %>
-                
-              </ol>
+  
+                <% }) %> 
+              </ol> 
+            
             </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                category2
-              </button>
-            </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body"><ol class="list-group list-group-numbered">
-                
-                <li class="list-group-item">
-                  item1
-                  <input type="number" value="0" min="0" max="5" style="font-size: 15px; float: right; width: 40px;">
-                  <input class="form-check-input me-1" type="checkbox" value="" style="float: right;">
-                </li>
-                <li class="list-group-item">
-                  item2
-                  <input type="number" value="0" min="0" max="5" style="font-size: 15px; float: right; width: 40px;">
-                  <input class="form-check-input me-1" type="checkbox" value="" style="float: right;">
-                </li>
-                <li class="list-group-item">
-                  item3
-                  <input type="number" value="0" min="0" max="5" style="font-size: 15px; float: right; width: 40px;">
-                  <input class="form-check-input me-1" type="checkbox" value="" style="float: right;">
-                </li>
-                
-              </ol></div>
             </div>
           </div>
         </div>
+      </form>
       </div>
-      <!-- address column -->
-      <!-- <div class="col">
-        
-        <div class="row card shadow"> 
-        <form class="row g-3 " action="">
-          <h3 style="text-align: center;">Enter your details</h3>
-          <div class=" col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputEmail4" class="form-label">Full name</label>
-            <input type="email" class="form-control" id="inputEmail4">
-            
-            
-          </div>
-          <div class="col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputPassword4" class="form-label">Phone</label>
-            <input type="password" class="form-control" id="inputPassword4">
-          </div>
-          <div class="col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputAddress" class="form-label">Address</label>
-            <textarea  type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" cols="10" rows="3"> </textarea>
-          </div>
+      
+      <div class="col">
+        <h4 style="text-align: center;">Your collections</h4>
+        <div  class="container card shadow mt-4" >
           
-          <div class="col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="col-12 col-md-12 col-sm-12 col-lg-6">
-            <label for="inputZip" class="form-label">Pincode</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Terms & conditions
-              </label>
-            </div>
-          </div>
-          <div class="col-12 col-md-12 col-sm-12 col-lg-12 mb-4" style="text-align: center; float: right;">
-            <a href="#"> <button type="submit" class="btn btn-primary">Sign in</button></a>
-          </div>
-        </form>
-    
-      </div> -->
-    </div>
-    <div class="col-12 col-md-12 col-sm-12 col-lg-12 mb-4" style="text-align: center; float: right;">
-      <a href="/stores/<%= stname %>/order"> <button type="submit" class="btn btn-primary">Order</button></a>
-    </div>
-    </div>
-  
-  
-  <button type="button" class="btn btn-primary" data-bs-trigger="hover focus" title="Item title" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="item description: this item is fresh and available ">
-    Popover on top
-  </button>
+        <table class="table table-hover table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">Items</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Price</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            
+            <%   orders.forEach(function(order){  %>  
+            <tr>
+              <form action="/orderdelete" method="post">
+              <td><button class="btn btn-outline-dark btn-sm" name="itemname" value="<%=order.name%>" style="border: none;"><%=order.name%></button></td>
+              <td>1</td> 
+              <td> <button class="btn btn-outline-dark btn-sm" name="itemprice" value="<%=order.price * 1 %>" style="border: none;"><%=order.price * 1 %></button></td> 
+              <td><button type="submit" class="btn btn-outline-danger btn-sm" name="remove" value="<%=order._id%>">Remove</button> </td> 
+              <input type="hidden" name="stname" value="<%= users.storename %>"></input>
+            </form>
+            </tr>
+          
+            <% }) %> 
+          </tbody>
+        </table>
+        <form action="/stores/<%= users.storename %>/next" method="post">
+          <input type="hidden" name="username" value="<%=customer.username%>">
+        <div class="col-12 col-md-12 col-sm-12 col-lg-12 mb-4" style="text-align: center; float: right;">
+          <%   orders.forEach(function(order){  %> 
+            
+            <input type="hidden" name="itemname" value="<%=order.name%>">
+            <input type="hidden" name="itemprice" value="<%=order.price%>">
 
- 
+          <% }) %> 
+          <a href=""> <button type="submit" class="btn btn-primary" onclick="myFunction()">Next</button></a>
+        </div>
+      </form>
+      </div>
+    </div>
+    </div>
+    </div>
+
+  
 
 <%- include("partials/footer3") -%>
