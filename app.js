@@ -30,9 +30,7 @@ app.use(passport.session());
 mongoose.connect("mongodb://localhost:27017/userdb", {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set("useCreateIndex", true);
 mongoose.set('useFindAndModify', false);
-
-// signup data to update store after  database
-//creating signupschema
+//creating userschema with mongoose
 const userSchema = new mongoose.Schema ({
   usertype: String, 
   name: String,
@@ -56,9 +54,7 @@ const userSchema = new mongoose.Schema ({
   ctime: String,
   cstorename: String
 });
-
 userSchema.plugin(passportLocalMongoose);
-
 //mongoose model using above Schema
 const User = mongoose.model("User",userSchema);
 
@@ -68,15 +64,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-//creating global variables to store all the store details
-// let stores = [];
+const customer2 = "Customer as Guest";
 
 // home route. rendering home.ejs page
-const customer2 = "Customer as Guest";
 app.get("/",function(req,res){
-  // User.find({usertype: "user"}, function(err, users){
-  //   res.render("home", {user: users});
-  // });
 
    if(req.isAuthenticated()){
     User.find({usertype: "user"}, function(err, users){
@@ -211,7 +202,6 @@ app.get("/home2/updatestore", function(req,res){
 
 
 app.post("/updatestore",function(req,res){
- 
   if(req.isAuthenticated()){
     User.findByIdAndUpdate(req.user.id,
       {storename: req.body.storename,
@@ -498,10 +488,8 @@ app.get("/store",function(req,res){
 });
 
 app.get("/stores/:storeName",function(req,res){
-
   const requestedTitle =_.lowerCase(req.params.storeName);
   const checkeditemid = req.body.checkbox;
-
 
   if(req.isAuthenticated()){
     User.findById({_id: req.user.id}, function(err, cust){
@@ -510,13 +498,13 @@ app.get("/stores/:storeName",function(req,res){
         User.find({}, function(err, users){
           
           users.forEach(function(user){
-         
             const storedTitle =_.lowerCase(user.storename);
             if(requestedTitle === storedTitle){
               const stname = user.storename;
               List.findOne({name: stname}, function(err, foundList){
                 
-              res.render("store", {users: user, newListItems: foundList.items, name: checkeditemid, orders:orderfound, customer: cust});
+              res.render("store", {users: user, newListItems: foundList.items, name: checkeditemid, 
+                orders:orderfound, customer: cust});
            
             });
             }  
@@ -710,6 +698,23 @@ else{
 
 });
 
+//add the manifest
+app.get("/manifest.json", function(req, res){
+  //send the correct headers
+  res.header("Content-Type", "text/cache-manifest");
+  //console.log(path.join(__dirname,"manifest.json"));
+  //send the manifest file
+  //to be parsed bt express
+  res.sendFile(__dirname + "/public/css/menifest.json");
+});
+
+//add the service worker
+app.get("/sw.js", function(req, res){
+  //send the correct headers
+  res.header("Content-Type", "text/javascript");
+  
+  res.sendFile(__dirname + "/public/css/sw.js");
+}); 
 
 app.listen(3000, function(){
   console.log("server has started on port 3000");
